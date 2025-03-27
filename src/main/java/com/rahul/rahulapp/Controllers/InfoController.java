@@ -43,5 +43,10 @@ public class InfoController {
         return infoServices.deletebyid(id);
     }
 
+    @PutMapping("/{id}")
+    String deleteInfobyId(@PathVariable Long id,@RequestBody Info info){
+
+        return infoServices.updatebyid(id,info);
+    }
 
 }
