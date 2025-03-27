@@ -30,5 +30,19 @@ public class InfoServices {
       return "Deletion failed or id not found";
     }
 
+ public String updatebyid(Long id, Info info) {
+        if(!infoRepo.existsById(id)) {
+            throw new RuntimeException("id not found");
+        }//early exit
 
+        Info info1=infoRepo.findById(id).orElse(null);
+
+        info1.setId(id);
+        info1.setFriendname(info.getFriendname());
+        info1.setTalent(info.getTalent());
+
+        infoRepo.save(info1);
+
+        return "updated successfully";
+    }
 }
