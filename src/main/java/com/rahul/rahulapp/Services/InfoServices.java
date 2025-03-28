@@ -31,16 +31,19 @@ public class InfoServices {
     }
 
  public String updatebyid(Long id, Info info) {
-        if(!infoRepo.existsById(id)) {
+        if(!infoRepo.existsById(id)) {//early exit
             throw new RuntimeException("id not found");
-        }//early exit
+        }
 
+        //first extract the data
         Info info1=infoRepo.findById(id).orElse(null);
 
+        //the edit i.e set
         info1.setId(id);
         info1.setFriendname(info.getFriendname());
         info1.setTalent(info.getTalent());
 
+        //save it again
         infoRepo.save(info1);
 
         return "updated successfully";
