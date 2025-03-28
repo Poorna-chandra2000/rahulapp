@@ -37,6 +37,11 @@ public class InfoController {
         return infoServices.getbyid(id);
     }
 
+     @GetMapping//get all
+    List<Info> getall(){
+        return infoServices.getall();
+    }
+    
     @DeleteMapping("/{id}")
     String deleteInfobyId(@PathVariable Long id){
 
