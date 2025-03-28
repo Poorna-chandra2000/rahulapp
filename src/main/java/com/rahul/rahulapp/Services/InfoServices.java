@@ -32,7 +32,9 @@ public class InfoServices {
 
  public String updatebyid(Long id, Info info) {
         if(!infoRepo.existsById(id)) {//early exit
-            throw new RuntimeException("id not found");
+             //throw new RuntimeException("id not found"); //this is unhandled
+            // throw new ResponseStatusException(HttpStatus.NOT_FOUND, "ID not found");
+            return "Id:"+id+" not found";
         }
 
         //first extract the data
