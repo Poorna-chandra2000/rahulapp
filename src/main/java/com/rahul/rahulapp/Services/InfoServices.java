@@ -21,6 +21,12 @@ public class InfoServices {
         return info;
     }
 
+    public List<Info> getall() {//list of data
+
+        List<Info> allinfo=infoRepo.findAll();
+
+        return allinfo;
+    }
     public String deletebyid(Long id) {
         if(infoRepo.existsById(id)){
             infoRepo.deleteById(id);
